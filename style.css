@@ -1,0 +1,119 @@
+:root {
+  color-scheme: dark light;
+  --site-width: 85ch;
+  --dark-mode-opacity: 0.85;
+  --dark-mode-text-color: rgba(255, 255, 255, var(--dark-mode-opacity));
+}
+
+body {
+  font-family: system-ui;
+}
+
+@media (prefers-color-scheme: dark) {
+  img.icon {
+    filter: invert();
+    opacity: var(--dark-mode-opacity);
+  }
+}
+
+header {
+  & > nav {
+    max-width: calc(var(--site-width) + 20ch);
+    container-type: inline-size;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+
+    & > .header-image {
+      height: 10cqi;
+      padding-block: 1em;
+    }
+
+    & > .inner-nav {
+      display: flex;
+      gap: 5cqi;
+      align-items: center;
+      flex-grow: 1;
+      justify-content: space-around;
+
+      & a {
+        display: flex;
+        flex-direction: column;
+        color: black;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: clamp(0.7em, 3cqi, 1.1em);
+        @media (prefers-color-scheme: dark) {
+          color: var(--dark-mode-text-color);
+        }
+        & > .icon {
+          height: 1.1em;
+        }
+        &:hover {
+          filter: invert(30%);
+        }
+      }
+    }
+  }
+}
+
+main {
+  max-width: min(93%, var(--site-width));
+  margin: 1em auto;
+
+  & .h2-with-icon {
+    display: flex;
+    gap: 0.5em;
+  }
+
+  & .apple-logo {
+    opacity: 0.5;
+    transform: translateX(-1em);
+    height: 7em;
+    float: left;
+    shape-outside: url("images/apple-logo.svg");
+    shape-image-threshold: 0;
+  }
+  & figure {
+    margin: 3em auto;
+  }
+  & figcaption {
+    text-align: center;
+  }
+  & .apple-park {
+    display: block;
+    margin: 0 auto;
+    max-width: min(90%, calc(var(--site-width) / 1.5));
+  }
+
+  & .jobs-gif {
+    margin-top: 1em;
+  }
+
+  & .woz-img {
+    float: left;
+    shape-outside: url("images/woz.png");
+    shape-image-threshold: 0;
+    margin-right: 2em;
+    width: 20em;
+  }
+
+  @media (width < 48em) {
+    .woz-img {
+      width: 14em;
+    }
+  }
+
+  & iframe {
+    max-width: 100%;
+  }
+
+  & .no-margin-top {
+    margin-top: 0;
+  }
+
+  & img.vision-pro-image {
+    width: clamp(5em, 100%, 45em);
+    margin-bottom: 4em;
+  }
+}
