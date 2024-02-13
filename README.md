@@ -1,4 +1,4 @@
-# Conor Dowdall | Writer
+# Conor Dowdall | Web Dev
 
 ## A Website (Not) for Apple by Conor Dowdall
 
